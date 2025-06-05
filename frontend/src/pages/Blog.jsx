@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { assets, blog_data, comments_data } from "../assets/assets";
+import { assets } from "../assets/assets";
 import Navbar from "../components/Navbar";
 import Moment from "moment";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
+import EmojiPicker from "emoji-picker-react"; // Import Emoji Picker
+
 const Blog = () => {
   const { id } = useParams();
 
@@ -17,6 +19,7 @@ const Blog = () => {
 
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false); // emoji picker toggle
 
   const fetchBlogData = async () => {
     try {
@@ -69,6 +72,12 @@ const Blog = () => {
     fetchBlogData();
     fetchComments();
   }, []);
+
+  // Handle emoji click to add emoji to textarea content
+  const onEmojiClick = (emojiObject) => {
+    setContent((prev) => prev + emojiObject.emoji);
+  };
+
   return data ? (
     <div className="relative">
       <img
@@ -141,6 +150,24 @@ const Blog = () => {
               className="w-full p-2 border border-gray-300 rounded outline-none h-48"
               required
             ></textarea>
+
+            {/* Emoji toggle button */}
+            <div className="relative inline-block">
+              <button
+                type="button"
+                onClick={() => setShowEmojiPicker((prev) => !prev)}
+                className="text-xl bg-gray-100 px-3 py-1 rounded hover:bg-gray-200"
+              >
+                😀 Emoji
+              </button>
+
+              {/* Emoji Picker Panel */}
+              {showEmojiPicker && (
+                <div className="absolute z-20 mt-2">
+                  <EmojiPicker onEmojiClick={onEmojiClick} />
+                </div>
+              )}
+            </div>
             <button
               type="submit"
               className="bg-primary text-white rounded p-2 px-8 hover:scale-102 transition-all cursor-pointer"

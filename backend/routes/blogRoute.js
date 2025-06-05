@@ -25,4 +25,5 @@ blogRouter.get("/getBlog-comments", getBlogComments);
 
 blogRouter.post("/ai/generate", protect, generateContent);
 
+
 export default blogRouter;

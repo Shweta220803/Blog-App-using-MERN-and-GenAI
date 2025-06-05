@@ -4,6 +4,7 @@ import Blog from "../models/blogModel.js";
 import Comment from "../models/commentModel.js";
 import main from "../config/gemini.js";
 
+// add blog
 export const addBlog = async (req, res) => {
   try {
     const { title, subTitle, description, category, isPublished } = JSON.parse(
@@ -112,7 +113,7 @@ export const addComment = async (req, res) => {
   try {
     const { blog, name, content } = req.body;
     await Comment.create({ blog, name, content });
-    res.json({ success: true, message: "Comment addded for review" });
+    res.json({ success: true, message: "Comment added for review" });
   } catch (error) {
     res.json({ success: false, error: error.message });
   }

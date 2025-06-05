@@ -14,6 +14,10 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Api is working");
+});
+
 // Routes
 app.use("/api/admin", adminRouter);
 app.use("/api/blog", blogRouter);

@@ -1,6 +1,7 @@
 import React from "react";
 import { assets } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 const BlogTableItem = ({ blog, fetchBlogs, index }) => {
   const { title, createdAt } = blog;
@@ -66,7 +67,7 @@ const BlogTableItem = ({ blog, fetchBlogs, index }) => {
           className="border px-2 py-0.5 mt-1 rounded cursor-pointer"
         >
           {" "}
-          {blog.isPublished ? "Unublish" : "Publish"}
+          {blog.isPublished ? "Unpublish" : "Publish"}
         </button>
         <img
           onClick={deleteBlog}

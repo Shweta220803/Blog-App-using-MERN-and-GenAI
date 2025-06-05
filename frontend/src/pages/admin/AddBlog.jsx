@@ -26,9 +26,21 @@ const AddBlog = () => {
 
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/blog/ai/generate", {
-        prompt: title,
-      });
+      // const { data } = await axios.post("/api/blog/ai/generate", {
+      //   prompt: title,
+      // });
+      const token = localStorage.getItem("token");
+
+const { data } = await axios.post(
+  "/api/blog/ai/generate",
+  { prompt: title },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
+
 
       if (data.success) {
         quillRef.current.root.innerHTML = parse(data.content);

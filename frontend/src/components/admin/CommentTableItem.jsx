@@ -1,6 +1,7 @@
 import React from "react";
 import { assets } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 const CommentTableItem = ({ comment, fetchComments }) => {
   const { blog, createdAt, _id } = comment;
@@ -78,7 +79,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
             onClick={deleteComment}
             src={assets.bin_icon}
             alt=""
-            className="w-5 hover:scake-110 transition-all cursor-pointer"
+            className="w-5 hover:scale-110 transition-all cursor-pointer"
           />
         </div>
       </td>

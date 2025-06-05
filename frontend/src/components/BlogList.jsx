@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { blogCategories } from "../assets/assets";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import BlogCard from "./BlogCard";
 import { useAppContext } from "../context/AppContext";
 
@@ -27,8 +27,8 @@ const BlogList = () => {
           <div key={item} className="relative">
             <button
               onClick={() => setMenu(item)}
-              className={`text-gray-700 cursor-pointer ${
-                menu === item && "text-white px-4 pt-0.5"
+              className={`cursor-pointer px-4 pt-0.5 ${
+                menu === item ? "text-white" : "text-gray-700"
               }`}
             >
               {item}

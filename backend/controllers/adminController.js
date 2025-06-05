@@ -2,6 +2,8 @@ import jwt from "jsonwebtoken";
 import Blog from "../models/blogModel.js";
 import Comment from "../models/commentModel.js";
 
+
+//  admin login
 export const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
