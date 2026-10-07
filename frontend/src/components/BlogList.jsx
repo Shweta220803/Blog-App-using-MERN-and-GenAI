@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { blogCategories } from "../assets/assets";
-import { motion } from "framer-motion";
+import {motion}  from "motion/react"
 import BlogCard from "./BlogCard";
 import { useAppContext } from "../context/AppContext";
 
@@ -56,3 +56,4 @@ const BlogList = () => {
 };
 
 export default BlogList;
+

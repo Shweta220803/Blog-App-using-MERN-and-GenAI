@@ -24,6 +24,7 @@ export const adminLogin = async (req, res) => {
   }
 };
 
+
 // get all blogs admin
 export const getAllBlogsAdmin = async (req, res) => {
   try {

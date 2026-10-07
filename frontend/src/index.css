@@ -1,9 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap");
 
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.dark body {
+  background-color: #09090b;
+  color: #f4f4f5;
+}
 
 * {
   font-family: "Outfit", sans-serif;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 ::-webkit-scrollbar {
@@ -11,7 +34,8 @@
 }
 
 @theme {
-  --color-primary: #9b56e8;
+  /* --color-primary: #9b56e8; */
+  --color-primary: #50C878
 }
 
 .rich-text {

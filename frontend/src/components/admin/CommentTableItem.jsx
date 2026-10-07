@@ -71,7 +71,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
               className="w-5 hover:scale-110 transition-all cursor-pointer"
             />
           ) : (
-            <p className="text-xs border border-green-00 bg-green-100 text-green-600 rounded-full px-3 py-1">
+            <p className="text-xs border border-green-00 bg-green-100 text-green-500 rounded-full px-3 py-1">
               Approved
             </p>
           )}

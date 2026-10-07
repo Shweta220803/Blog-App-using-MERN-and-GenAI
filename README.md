@@ -328,7 +328,7 @@ frontend/.env
 Add:
 
 ```env
-VITE_BACKEND_URL=http://localhost:3001
+VITE_BASE_URL=http://localhost:3001
 ```
 
 > Never commit `.env` files or private API keys to GitHub.

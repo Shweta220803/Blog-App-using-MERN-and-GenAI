@@ -3,12 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const navigate = useNavigate();
+
   const [token, setToken] = useState(null);
   const [blogs, setBlogs] = useState([]);
   const [input, setInput] = useState("");
@@ -23,6 +24,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  // Fetch blog and check token
   useEffect(() => {
     fetchBlogs();
     const token = localStorage.getItem("token");

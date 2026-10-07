@@ -22,18 +22,20 @@ const Header = () => {
     <div className="mx-8 sm:mx-16 xl:mx-24 relative">
       <div className="text-center mt-20 mb-8">
         <div className="inline-flex items-center justify-center gap-4 px-6 py-1.5 mb-4 border border-primary/40 bg-primary/10 rounded-full text-sm">
-          <p>New: AI Feature integrated</p>
+          <p>New: AI Powered Content Creation</p>
           <img src={assets.star_icon} alt="star-icon" className="w-2.5" />
         </div>
-        <h1 className="text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700">
-          Your own <span className="text-primary">blogging</span> <br />{" "}
-          platform.
-        </h1>
+        <h1 className="text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700 dark:text-white">
+          {" "}
+          Create. <span className="text-primary">Write.</span> Inspire. <br />{" "}
+          <span className="text-primary">Powered by AI.</span>{" "}
+        </h1>{" "}
         <p className="my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs tezt-gray-700">
-          This is your space to think out loud, to shaare what matters, and to
-          write without filters. whether it's one word or a thousand, your story
-          starts right here.
+          Turn your ideas into meaningful stories with intelligent writing
+          tools. Create, discover, and share engaging content on a modern
+          AI-powered publishing platform.{" "}
         </p>
+        
         {/* form */}
         <form
           onSubmit={onSubmitHandler}

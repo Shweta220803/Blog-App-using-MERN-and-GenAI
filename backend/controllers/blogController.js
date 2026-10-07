@@ -8,7 +8,7 @@ import main from "../config/gemini.js";
 export const addBlog = async (req, res) => {
   try {
     const { title, subTitle, description, category, isPublished } = JSON.parse(
-      req.body.blog
+      req.body.blog,
     );
 
     const imageFile = req.file;
@@ -44,6 +44,7 @@ export const addBlog = async (req, res) => {
       category,
       image,
       isPublished,
+      author: process.env.ADMIN_NAME,
     });
     res.json({ success: true, message: "Blog added successfully" });
   } catch (error) {
@@ -80,11 +81,12 @@ export const getBlogById = async (req, res) => {
 //  delete blog by id
 export const DeleteBlogById = async (req, res) => {
   try {
-    const { id } = req.params;
-    await Blog.findByIdAndDelete(id);
+    const { id } = req.body;
+    const deletedVlog = await Blog.findByIdAndDelete(id);
 
     //  delete all comments associated with the blog
     await Comment.deleteMany({ blog: id });
+
     res.json({ success: true, message: "Blog deleted successfully" });
   } catch (error) {
     res.json({ success: false, error: error.message });
@@ -138,7 +140,7 @@ export const generateContent = async (req, res) => {
   try {
     const { prompt } = req.body;
     const content = await main(
-      prompt + "Generate a blog content for this topic in simple text format"
+      prompt + "Generate a blog content for this topic in simple text format",
     );
     res.json({ success: true, content });
   } catch (error) {
